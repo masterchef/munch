@@ -1,0 +1,247 @@
+<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license. -->
+<!-- See LICENSE in the project root for license information -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Munch Time</title>
+
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.debug.js"></script>
+
+    <!-- LOCAL -->
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.6.0/css/fabric.css"/>
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.4.0/css/fabric.components.min.css" />
+    
+
+    <!-- CDN -->
+    <!-- For the Office UI Fabric, go to http://aka.ms/office-ui-fabric to learn more. -->
+    <!--<link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.2.0/css/fabric.min.css" />-->
+    <!--<link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.2.0/css/fabric.components.min.css" />-->
+
+    <!-- Template styles -->
+    <link href="app.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="ms-font-m ms-welcome">
+    <header class="ms-welcome__header ms-bgColor-neutralLighter ms-u-fadeIn500">
+        <img width="60" height="60" src="assets/vtruchan.jpeg" alt="NetworkIn" title="NetworkIn" />
+        <h2 class="ms-fontWeight-light ms-fontColor-neutralPrimary">Welcome, Viktoras!</h2>
+        <span class="ms-font-sm ms-fontWeight-semilight ms-fontColor-neutralPrimary ms-u-slideUpIn20">Meet interesting people from your company for lunch and learn something new every time!</span>
+    </header>
+    <main id="app-body" class="ms-welcome__main" style="display: none;">
+        <div id="intro-body">
+            <div class="ms-Grid">
+                <div class="ms-Grid-row">
+                    <div class="ms-Grid-col ms-sm12 ms-md12 ms-lg12">
+                        <ul class="ms-List ms-welcome__features ms-u-slideUpIn10">
+                            <li class="ms-ListItem">
+                                <i class="ms-Icon ms-Icon--CheckList" aria-hidden="true"></i>
+                                <span class="ms-font-m ms-fontColor-neutralPrimary">You pick your <b>interests</b>, location and availability.</span>
+                            </li>
+                            <li class="ms-ListItem">
+                                <i class="ms-Icon ms-Icon--AddFriend"></i>
+                                <span class="ms-font-m ms-fontColor-neutralPrimary">We match you with an <b>interesting</b> co-worker.</span>
+                            </li>
+                            <li class="ms-ListItem">
+                                <i class="ms-Icon ms-Icon--CoffeeScript"></i>
+                                <span class="ms-font-m ms-fontColor-neutralPrimary">You meet over lunch and <b>learn</b> from each other!</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div role="button" class="preferences ms-welcome__action ms-Button ms-Button--hero ms-u-slideUpIn20">
+                <span class="ms-Button-label">Let's get started!</span>
+                <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--ChevronRight"></i></span>
+            </div>
+        </div>
+        <div id="preferences-body" style="display: none;" dir="ltr">
+            <div class="ms-Grid">
+                <div class="ms-Grid-row">
+                    <label class="ms-Label">Choose your office location</label>
+                    <div class="ms-Grid-col ms-sm12">
+                        <div class="ms-Dropdown" tabindex="0">
+                          <i class="ms-Dropdown-caretDown ms-Icon ms-Icon--ChevronDown"></i>
+                          <select class="ms-Dropdown-select">
+                            <option>Sunnyvale</option>
+                            <option>San Francisco</option>
+                            <option>New York City</option>
+                            <option>Chicago</option>
+                            <option>Detroit</option>
+                          </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="ms-Grid-row">
+                    <label class="ms-Label">Choose your availability</label>
+                    <div class="ms-Grid-col ms-sm2">
+                        <div class="ms-CheckBox">
+                            <label role="checkbox" class="ms-CheckBox-field" tabindex="0" aria-checked="false" name="mon">
+                                <span class="ms-Label">M</span> 
+                            </label>
+                            <input tabindex="-1" type="checkbox" class="ms-CheckBox-input"/>
+                            
+                        </div>
+                    </div>
+                    <div class="ms-Grid-col ms-sm2">
+                        <div class="ms-CheckBox">
+                        <input tabindex="-1" type="checkbox" class="ms-CheckBox-input"/>
+                            <label role="checkbox" class="ms-CheckBox-field" tabindex="1" aria-checked="false" name="tue">
+                            <span class="ms-Label">T</span> 
+                        </label>
+                        </div>
+                    </div>
+                    <div class="ms-Grid-col ms-sm2">
+                        <div class="ms-CheckBox">
+                        <input tabindex="-1" type="checkbox" class="ms-CheckBox-input"/>
+                        <label role="checkbox" class="ms-CheckBox-field" tabindex="2" aria-checked="false" name="wed">
+                            <span class="ms-Label">W</span> 
+                        </label>
+                        </div>
+                    </div>
+                    <div class="ms-Grid-col ms-sm2">
+                        <div class="ms-CheckBox">
+                            <input tabindex="-1" type="checkbox" class="ms-CheckBox-input"/>
+                            <label role="checkbox" class="ms-CheckBox-field" tabindex="3" aria-checked="false" name="thu">
+                                <span class="ms-Label">Th</span> 
+                            </label>
+                        </div>
+                    </div>
+                    <div class="ms-Grid-col ms-sm2">
+                        <div class="ms-CheckBox">
+                            <input tabindex="-1" type="checkbox" class="ms-CheckBox-input"/>
+                            <label role="checkbox" class="ms-CheckBox-field" tabindex="4" aria-checked="false" name="fri">
+                                <span class="ms-Label">F</span> 
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="ms-Grid-row">
+                    <label class="ms-Label">Select a few interest areas</label>
+                    <div class="ms-Grid-col ms-sm6">
+                        <div class="ms-CheckBox">
+                            <label role="checkbox" class="ms-CheckBox-field" tabindex="0" aria-checked="false" name="sales">
+                                <span class="ms-Label">Sales</span>
+                            </label>
+                            <input tabindex="-1" type="checkbox" class="ms-CheckBox-input"/>
+                        </div>
+                    </div>
+                    <div class="ms-Grid-col ms-sm6">
+                        <div class="ms-CheckBox">
+                            <label role="checkbox" class="ms-CheckBox-field" tabindex="0" aria-checked="false" name="data">
+                                <span class="ms-Label">Data Science</span>
+                            </label>
+                            <input tabindex="-1" type="checkbox" class="ms-CheckBox-input"/>
+                        </div>
+                    </div>
+                    <div class="ms-Grid-col ms-sm6">
+                        <div class="ms-CheckBox">
+                            <label role="checkbox" class="ms-CheckBox-field" tabindex="0" aria-checked="false" name="engineering">
+                                <span class="ms-Label">Software Dev.</span>
+                            </label>
+                            <input tabindex="-1" type="checkbox" class="ms-CheckBox-input"/>
+                        </div>
+                    </div>
+                    <div class="ms-Grid-col ms-sm6">
+                        <div class="ms-CheckBox">
+                            <label role="checkbox" class="ms-CheckBox-field" tabindex="0" aria-checked="false" name="engineering">
+                                <span class="ms-Label">Leadership</span>
+                            </label>
+                            <input tabindex="-1" type="checkbox" class="ms-CheckBox-input"/>
+                        </div>
+                    </div>
+                    <div class="ms-Grid-col ms-sm6">
+                        <div class="ms-CheckBox">
+                            <label role="checkbox" class="ms-CheckBox-field" tabindex="0" aria-checked="false" name="engineering">
+                                <span class="ms-Label">SRE</span>
+                            </label>
+                            <input tabindex="-1" type="checkbox" class="ms-CheckBox-input"/>
+                        </div>
+                    </div>
+                    <div class="ms-Grid-col ms-sm6">
+                        <div class="ms-CheckBox">
+                            <label role="checkbox" class="ms-CheckBox-field" tabindex="0" aria-checked="false" name="engineering">
+                                <span class="ms-Label">Dev Ops</span>
+                            </label>
+                            <input tabindex="-1" type="checkbox" class="ms-CheckBox-input"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div role="button" id="main" class="ms-welcome__action ms-Button ms-Button--hero ms-u-slideUpIn20">
+                <span class="ms-Button-label">Save</span>
+            </div>
+        </div>
+        <div id="main-body" style="display: none;">
+            <div class="ms-Grid">
+                <div class="ms-Grid-row">
+                    <div class='munch-time'>
+                        <label class="ms-Label">Tomorrow 12:00 PM in Mezzo</label>
+                        <i class="ms-Icon ms-Icon--Calendar"></i>
+                    </div>
+                    <div class="ms-Grid-col ms-sm12 ms-md12 ms-lg12">
+                        <div class="ms-Persona">
+                            <div class="ms-Persona-imageArea">
+                              <div class="ms-Persona-initials ms-Persona-initials--blue">RM</div>
+                              <img class="ms-Persona-image" src="assets/rmiller.png">
+                            </div>
+                            <div class="ms-Persona-presence">
+                            </div>
+                            <div class="ms-Persona-details">
+                              <div class="ms-Persona-primaryText">Russel Miller</div>
+                              <div class="ms-Persona-secondaryText">Sales</div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="ms-Grid-row">
+                    <label class="ms-Label">Past Munches</label>
+                    <div class="ms-Grid-col ms-sm12 ms-md12 ms-lg12">
+                        <div class="ms-Persona">
+                            <div class="ms-Persona-imageArea">
+                              <div class="ms-Persona-initials ms-Persona-initials--blue">DL</div>
+                              <img class="ms-Persona-image" src="assets/dlow.png">
+                            </div>
+                            <div class="ms-Persona-presence">
+                            </div>
+                            <div class="ms-Persona-details">
+                              <div class="ms-Persona-primaryText">Daniel Low</div>
+                              <div class="ms-Persona-secondaryText">Engineering</div>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="ms-Grid-col ms-sm12 ms-md12 ms-lg12">
+                        <div class="ms-Persona">
+                            <div class="ms-Persona-imageArea">
+                              <div class="ms-Persona-initials ms-Persona-initials--blue">JW</div>
+                              <img class="ms-Persona-image" src="assets/jweiner.png">
+                            </div>
+                            <div class="ms-Persona-presence">
+                            </div>
+                            <div class="ms-Persona-details">
+                              <div class="ms-Persona-primaryText">Jeff Weiner</div>
+                              <div class="ms-Persona-secondaryText">CEO</div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <div role="button" class="preferences ms-welcome__action ms-Button ms-Button--hero ms-u-slideUpIn20">
+                <span class="ms-Button-label">Preferences</span>
+            </div>
+        </div>
+    </main>
+
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.4.0/js/fabric.min.js"></script>
+
+
+</body>
+
+</html>
