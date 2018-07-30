@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title= title
+    meta(http-equiv="X-UA-Compatible", content="IE=Edge")
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+    <!-- Office JavaScript API -->
+    script(type='text/javascript', src='https://appsforoffice.microsoft.com/lib/1.1/hosted/office.debug.js')
+    link(rel'stylesheep', href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.6.0/css/fabric.css")
+    link(rel="stylesheet", href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.4.0/css/fabric.components.min.css")
+  body.ms-font-m.ms-welcome
+    block content
+    script(type='text/javascript', src='/jscripts/jquery.js')
+    script(type='text/javascript', src='/scripts/app.js')
+    script(src='https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.4.0/js/fabric.min.js')

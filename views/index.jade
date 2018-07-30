@@ -1,0 +1,147 @@
+extends layout
+
+block content
+    header.ms-welcome__header.ms-bgColor-neutralLighter.ms-u-fadeIn500
+      img(width="60", height="60", src="assets/vtruchan.jpeg", alt="self-logo", title="Selfie")
+      h2.ms-fontWeight-light.ms-fontColor-neutralPrimary Welcome, Viktoras
+      span.ms-font-sm.ms-fontWeight-semilight.ms-fontColor-neutralPrimary.ms-u-slideUpIn20 Meet interesting people from your company for lunch and learn something new every time!
+    main#app-body.ms-welcome__main(style='display: none;')
+      #intro-body
+        .ms-Grid
+          .ms-Grid-row
+            .ms-Grid-col.ms-sm12.ms-md12.ms-lg12
+              ul.ms-List.ms-welcome__features.ms-u-slideUpIn10
+                li.ms-ListItem
+                  i.ms-Icon.ms-Icon--CheckList(aria-hidden='true')
+                  span.ms-font-m.ms-fontColor-neutralPrimary
+                    | You pick your 
+                    b interests
+                    | , location and availability.
+                li.ms-ListItem
+                  i.ms-Icon.ms-Icon--AddFriend
+                  span.ms-font-m.ms-fontColor-neutralPrimary
+                    | We match you with an 
+                    b interesting
+                    |  co-worker.
+                li.ms-ListItem
+                  i.ms-Icon.ms-Icon--CoffeeScript
+                  span.ms-font-m.ms-fontColor-neutralPrimary
+                    | You meet over lunch and 
+                    b learn
+                    |  from each other!
+        .preferences.ms-welcome__action.ms-Button.ms-Button--hero.ms-u-slideUpIn20(role='button')
+          span.ms-Button-label Let's get started!
+          span.ms-Button-icon
+            i.ms-Icon.ms-Icon--ChevronRight
+      #preferences-body(style='display: none;', dir='ltr')
+        .ms-Grid
+          .ms-Grid-row
+            label.ms-Label Choose your office location
+            .ms-Grid-col.ms-sm12
+              .ms-Dropdown(tabindex='0')
+                i.ms-Dropdown-caretDown.ms-Icon.ms-Icon--ChevronDown
+                select.ms-Dropdown-select
+                  option Sunnyvale
+                  option San Francisco
+                  option New York City
+                  option Chicago
+                  option Detroit
+          .ms-Grid-row
+            label.ms-Label Choose your availability
+            .ms-Grid-col.ms-sm2
+              .ms-CheckBox
+                label.ms-CheckBox-field(role='checkbox', tabindex='0', aria-checked='false', name='mon')
+                  span.ms-Label M
+                input.ms-CheckBox-input(tabindex='-1', type='checkbox')
+            .ms-Grid-col.ms-sm2
+              .ms-CheckBox
+                input.ms-CheckBox-input(tabindex='-1', type='checkbox')
+                label.ms-CheckBox-field(role='checkbox', tabindex='1', aria-checked='false', name='tue')
+                  span.ms-Label T
+            .ms-Grid-col.ms-sm2
+              .ms-CheckBox
+                input.ms-CheckBox-input(tabindex='-1', type='checkbox')
+                label.ms-CheckBox-field(role='checkbox', tabindex='2', aria-checked='false', name='wed')
+                  span.ms-Label W
+            .ms-Grid-col.ms-sm2
+              .ms-CheckBox
+                input.ms-CheckBox-input(tabindex='-1', type='checkbox')
+                label.ms-CheckBox-field(role='checkbox', tabindex='3', aria-checked='false', name='thu')
+                  span.ms-Label Th
+            .ms-Grid-col.ms-sm2
+              .ms-CheckBox
+                input.ms-CheckBox-input(tabindex='-1', type='checkbox')
+                label.ms-CheckBox-field(role='checkbox', tabindex='4', aria-checked='false', name='fri')
+                  span.ms-Label F
+          .ms-Grid-row
+            label.ms-Label Select a few interest areas
+            .ms-Grid-col.ms-sm6
+              .ms-CheckBox
+                label.ms-CheckBox-field(role='checkbox', tabindex='0', aria-checked='false', name='sales')
+                  span.ms-Label Sales
+                input.ms-CheckBox-input(tabindex='-1', type='checkbox')
+            .ms-Grid-col.ms-sm6
+              .ms-CheckBox
+                label.ms-CheckBox-field(role='checkbox', tabindex='0', aria-checked='false', name='data')
+                  span.ms-Label Data Science
+                input.ms-CheckBox-input(tabindex='-1', type='checkbox')
+            .ms-Grid-col.ms-sm6
+              .ms-CheckBox
+                label.ms-CheckBox-field(role='checkbox', tabindex='0', aria-checked='false', name='engineering')
+                  span.ms-Label Software Dev.
+                input.ms-CheckBox-input(tabindex='-1', type='checkbox')
+            .ms-Grid-col.ms-sm6
+              .ms-CheckBox
+                label.ms-CheckBox-field(role='checkbox', tabindex='0', aria-checked='false', name='engineering')
+                  span.ms-Label Leadership
+                input.ms-CheckBox-input(tabindex='-1', type='checkbox')
+            .ms-Grid-col.ms-sm6
+              .ms-CheckBox
+                label.ms-CheckBox-field(role='checkbox', tabindex='0', aria-checked='false', name='engineering')
+                  span.ms-Label SRE
+                input.ms-CheckBox-input(tabindex='-1', type='checkbox')
+            .ms-Grid-col.ms-sm6
+              .ms-CheckBox
+                label.ms-CheckBox-field(role='checkbox', tabindex='0', aria-checked='false', name='engineering')
+                  span.ms-Label Dev Ops
+                input.ms-CheckBox-input(tabindex='-1', type='checkbox')
+        #main.ms-welcome__action.ms-Button.ms-Button--hero.ms-u-slideUpIn20(role='button')
+          span.ms-Button-label Save
+      #main-body(style='display: none;')
+        .ms-Grid
+          .ms-Grid-row
+            .munch-time
+              label.ms-Label Tomorrow 12:00 PM in Mezzo
+              i.ms-Icon.ms-Icon--Calendar
+            .ms-Grid-col.ms-sm12.ms-md12.ms-lg12
+              .ms-Persona
+                .ms-Persona-imageArea
+                  .ms-Persona-initials.ms-Persona-initials--blue RM
+                  img.ms-Persona-image(src='/assets/rmiller.png')
+                .ms-Persona-presence
+                .ms-Persona-details
+                  .ms-Persona-primaryText Russel Miller
+                  .ms-Persona-secondaryText Sales
+          br
+          .ms-Grid-row
+            label.ms-Label Past Munches
+            .ms-Grid-col.ms-sm12.ms-md12.ms-lg12
+              .ms-Persona
+                .ms-Persona-imageArea
+                  .ms-Persona-initials.ms-Persona-initials--blue DL
+                  img.ms-Persona-image(src='/assets/dlow.png')
+                .ms-Persona-presence
+                .ms-Persona-details
+                  .ms-Persona-primaryText Daniel Low
+                  .ms-Persona-secondaryText Engineering
+            .ms-Grid-col.ms-sm12.ms-md12.ms-lg12
+              .ms-Persona
+                .ms-Persona-imageArea
+                  .ms-Persona-initials.ms-Persona-initials--blue JW
+                  img.ms-Persona-image(src='/assets/jweiner.png')
+                .ms-Persona-presence
+                .ms-Persona-details
+                  .ms-Persona-primaryText Jeff Weiner
+                  .ms-Persona-secondaryText CEO
+        .preferences.ms-welcome__action.ms-Button.ms-Button--hero.ms-u-slideUpIn20(role='button')
+          span.ms-Button-label Preferences
