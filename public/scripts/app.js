@@ -4,7 +4,6 @@
  */
 
 
-
 $(document).ready(() => {
     $('.preferences').click(preferences);
     $('#main').click(main);
@@ -36,6 +35,10 @@ async function preferences() {
 	$('#intro-body').hide();
 	$('#main-body').hide();
     $('#preferences-body').show();
+}
+
+async function linkedin_loaded() {
+	alert('linkedin_loaded');
 }
 
 async function main() {

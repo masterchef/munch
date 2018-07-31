@@ -10,6 +10,12 @@ html
     script(type='text/javascript', src='https://appsforoffice.microsoft.com/lib/1.1/hosted/office.debug.js')
     link(rel'stylesheep', href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.6.0/css/fabric.css")
     link(rel="stylesheet", href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.4.0/css/fabric.components.min.css")
+
+    <!-- LinkedIn Javascript API-->
+    script(type="text/javascript" src="//platform.linkedin.com/in.js").
+        api_key:   hpjWpD0avQlLo73c
+        onLoad:    linkedin_loaded
+        authorize: true
   body.ms-font-m.ms-welcome
     block content
     script(type='text/javascript', src='/jscripts/jquery.js')

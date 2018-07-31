@@ -30,6 +30,7 @@ app.configure(function(){
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
   app.use('/jscripts', express.static(__dirname + '/node_modules/jquery/dist/'));
+  app.use(express.favicon(path.join(__dirname, 'public','assets','favicon.ico'))); 
 });
 
 app.configure('development', function(){
