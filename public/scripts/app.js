@@ -47,11 +47,11 @@ async function main() {
 
 // Login with LinkedIn
 function linkedInLogin() {
-	IN.User.authorize();
+	IN.User.authorize(undefined, this);
 }
 
 function linkedInLogout() {
-	IN.User.logout(setLinkedinButtons);
+	IN.User.logout(setLinkedinButtons, this);
 }
 
 // Setup an event listener to make an API call once auth is complete
