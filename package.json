@@ -17,9 +17,9 @@
     "@microsoft/office-js-helpers": "^1.0.1",
     "babel-polyfill": "^6.26.0",
     "express": "~3.1.0",
-    "jade": "*",
     "jquery": "^3.1.1",
     "office-ui-fabric-js": "^1.4.0",
+    "pug": "^2.0.3",
     "serve-favicon": "^2.5.0",
     "showdown": "^1.8.6",
     "urijs": "^1.19.1"
