@@ -4,6 +4,7 @@
   "author": "",
   "version": "0.1.0",
   "scripts": {
+    "build": "npm install",
     "start": "node server",
     "validate": "./node_modules/.bin/validate-office-addin"
   },
