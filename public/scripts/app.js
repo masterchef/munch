@@ -8,6 +8,8 @@ $(document).ready(() => {
     $('.preferences').click(preferences);
     $('#main').click(main);
     $('#app-body').show();
+    $('#linkedin-button').click(linkedInLogin);
+    $('#linkedin-logout').click(linkedInLogout);
 });
 
 
@@ -37,12 +39,61 @@ async function preferences() {
     $('#preferences-body').show();
 }
 
-async function linkedin_loaded() {
-	alert('linkedin_loaded');
-}
-
 async function main() {
 	$('#intro').hide();
 	$('#preferences-body').hide();
 	$('#main-body').show();
+}
+
+// Login with LinkedIn
+function linkedInLogin() {
+	IN.User.authorize();
+}
+
+function linkedInLogout() {
+	IN.User.logout(setLinkedinButtons);
+}
+
+// Setup an event listener to make an API call once auth is complete
+function onLinkedInLoad() {
+    IN.Event.on(IN, "auth", linkedinLoggedIn);
+    setLinkedinButtons();
+}
+
+function setLinkedinButtons() {
+	if (IN.User.isAuthorized()) {
+    	$('#linkedin-button').hide();
+    	$('#linkedin-logout').show();
+    	$('#welcome').hide();
+    	$('#profile').show();
+    } else {
+    	$('#linkedin-button').show();
+    	$('#linkedin-logout').hide();
+    	$('#welcome').show();
+    	$('#profile').hide();
+    }
+}
+
+function updateProfile(data) {
+	$('#profile h2').html('Welcome, ' + data.firstName);
+	$('#profile img').attr('src', data.pictureUrl);
+	$('#profile').show();
+	$('#welcome').hide();
+}
+
+// Handle the successful return from the API call
+function onSuccess(data) {
+    console.log(data);
+    updateProfile(data);
+}
+
+// Handle an error response from the API call
+function onError(error) {
+    console.log(error);
+}
+
+// Use the API call wrapper to request the member's basic profile data
+function linkedinLoggedIn() {
+	setLinkedinButtons();
+    IN.API.Raw("/people/~:(first-name,picture-url)").result(onSuccess).error(onError);
 }

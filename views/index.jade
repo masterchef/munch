@@ -2,8 +2,11 @@ extends layout
 
 block content
     header.ms-welcome__header.ms-bgColor-neutralLighter.ms-u-fadeIn500
-      img(width="60", height="60", src="assets/vtruchan.jpeg", alt="self-logo", title="Selfie")
-      h2.ms-fontWeight-light.ms-fontColor-neutralPrimary Welcome, Viktoras
+      #profile
+        img.profile(width="60", height="60", src="", alt="photo", title="Selfie")
+        h2.ms-fontWeight-light.ms-fontColor-neutralPrimary
+      #welcome
+        img.profile(width="200", src="/assets/munch_logo_small.png", alt="photo", title="Selfie")
       span.ms-font-sm.ms-fontWeight-semilight.ms-fontColor-neutralPrimary.ms-u-slideUpIn20 Meet interesting people from your company for lunch and learn something new every time!
     main#app-body.ms-welcome__main(style='display: none;')
       #intro-body
@@ -29,10 +32,10 @@ block content
                     | You meet over lunch and 
                     b learn
                     |  from each other!
-        .preferences.ms-welcome__action.ms-Button.ms-Button--hero.ms-u-slideUpIn20(role='button')
-          span.ms-Button-label Let's get started!
-          span.ms-Button-icon
-            i.ms-Icon.ms-Icon--ChevronRight
+          .ms-Grid-row
+            .ms-Grid-col.ms-sm12.ms-md12.ms-lg12
+              #linkedin-button
+                img(width=150, src="assets/linkedin_login.png", alt="login", title="Login with LinkedIn")
       #preferences-body(style='display: none;', dir='ltr')
         .ms-Grid
           .ms-Grid-row
@@ -145,3 +148,5 @@ block content
                   .ms-Persona-secondaryText CEO
         .preferences.ms-welcome__action.ms-Button.ms-Button--hero.ms-u-slideUpIn20(role='button')
           span.ms-Button-label Preferences
+      #linkedin-logout.ms-Button(role='button')
+        span.ms-Button-label Logout

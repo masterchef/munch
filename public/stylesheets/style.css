@@ -53,12 +53,12 @@ h6 {
     justify-content: flex-end;
 }
 
-.ms-welcome__header > h2, span {
+.ms-welcome__header {
     margin-top: 15px;
     text-align: center;
 }
 
-.ms-welcome__header > img {
+.ms-welcome__header > #profile > img.profile {
     border-radius: 50%;
 }
 
@@ -148,4 +148,17 @@ h6 {
 
 .ms-Persona {
     margin-bottom: 10px;
+}
+
+#profile {
+    display: none;
+}
+
+#linkedin-button {
+    display: none;
+    text-align: center;
+}
+
+#linkedin-logout {
+    display: none;
 }
