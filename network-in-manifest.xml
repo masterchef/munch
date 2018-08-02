@@ -3,7 +3,7 @@
           xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
-          xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
+          xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.1"
           xsi:type="MailApp">
 
   <!-- Begin Basic Settings: Add-in metadata, used for all versions of Office unless override provided. -->
@@ -123,5 +123,79 @@
         <bt:String id="paneReadSuperTipDescription" DefaultValue="Opens a pane displaying all available properties. This is an example of a button that opens a task pane."/>
       </bt:LongStrings>
     </Resources>
+    
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
+      <Hosts>
+        <Host xsi:type="MailHost">
+
+          <DesktopFormFactor>
+            <!-- Location of the Functions that UI-less buttons can trigger (ExecuteFunction Actions). -->
+            <FunctionFile resid="functionFile" />
+
+            <!-- Message Read -->
+            <ExtensionPoint xsi:type="MessageReadCommandSurface">
+              <!-- Use the default tab of the ExtensionPoint or create your own with <CustomTab id="myTab"> -->
+              <OfficeTab id="TabDefault">
+                <!-- Up to 6 Groups added per Tab -->
+                <Group id="msgReadGroup">
+                  <Label resid="groupLabel" />
+                  <!-- Launch the add-in : task pane button -->
+                  <Control xsi:type="Button" id="msgReadOpenPaneButton">
+                    <Label resid="paneReadButtonLabel" />
+                    <Supertip>
+                      <Title resid="paneReadSuperTipTitle" />
+                      <Description resid="paneReadSuperTipDescription" />
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="icon16" />
+                      <bt:Image size="32" resid="icon32" />
+                      <bt:Image size="80" resid="icon80" />
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane">
+                      <SourceLocation resid="welcomTaskPaneUrl" />
+                    </Action>
+                  </Control>
+                  <!-- Go to http://aka.ms/ButtonCommands to learn how to add more Controls: ExecuteFunction and Menu -->
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+            <!-- Go to http://aka.ms/ExtensionPointsCommands to learn how to add more Extension Points: MessageRead, AppointmentOrganizer, AppointmentAttendee -->
+          </DesktopFormFactor>
+        </Host>
+      </Hosts>
+
+      <Resources>
+        <bt:Images>
+          <bt:Image id="icon16" DefaultValue="https://munchin.azurewebsites.net/assets/icon-16.png"/>
+          <bt:Image id="icon32" DefaultValue="https://munchin.azurewebsites.net/assets/icon-32.png"/>
+          <bt:Image id="icon80" DefaultValue="https://munchin.azurewebsites.net/assets/icon-80.png"/>
+        </bt:Images>
+        <bt:Urls>
+          <bt:Url id="functionFile" DefaultValue="https://munchin.azurewebsites.net/function-file/function-file.html"/>
+          <bt:Url id="welcomTaskPaneUrl" DefaultValue="https://munchin.azurewebsites.net/"/>
+          <bt:Url id="settingsTaskPaneUrl" DefaultValue="https://munchin.azurewebsites.net/settings/settings.html"/>
+        </bt:Urls>
+        <bt:ShortStrings>
+          <bt:String id="groupLabel" DefaultValue="My Add-in Group"/>
+          <bt:String id="customTabLabel"  DefaultValue="My Add-in Tab"/>
+          <bt:String id="paneReadButtonLabel" DefaultValue="Munch"/>
+          <bt:String id="paneReadSuperTipTitle" DefaultValue="Get all properties"/>
+        </bt:ShortStrings>
+        <bt:LongStrings>
+          <bt:String id="paneReadSuperTipDescription" DefaultValue="Opens a pane displaying all available properties. This is an example of a button that opens a task pane."/>
+        </bt:LongStrings>
+      </Resources>
+      <WebApplicationInfo>
+        <Id>78223960-da8a-4cc3-bff5-050dcbe71447</Id>
+        <Resource>https://munchin.azurewebsites.net/5661fed9-f33d-4e95-b6cf-624a34a2f51d</Resource>
+        <Scopes>
+            <Scope>calendars.readwrite</Scope>
+            <Scope>offline_access</Scope>
+            <Scope>user.read</Scope>
+            <Scope>openid</Scope>
+            <Scope>profile</Scope>
+        </Scopes>
+      </WebApplicationInfo>
+    </VersionOverrides>
   </VersionOverrides>
 </OfficeApp>
